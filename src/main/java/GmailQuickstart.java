@@ -43,7 +43,7 @@ public class GmailQuickstart {
    * Global instance of the scopes required by this quickstart.
    * If modifying these scopes, delete your previously saved tokens/ folder.
    */
-  private static final List<String> SCOPES = List.of(GmailScopes.GMAIL_LABELS, GmailScopes.GMAIL_SEND);
+  private static final List<String> SCOPES = Collections.singletonList(GmailScopes.GMAIL_SEND);
   private static final String CREDENTIALS_FILE_PATH = "/credentials.json";
 
   /**
