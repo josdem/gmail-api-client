@@ -75,7 +75,10 @@ public class GmailQuickstart {
   public static void main(String... args) throws IOException, GeneralSecurityException {
     // Build a new authorized API client service.
     final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-    Gmail service = new Gmail.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))
+
+    Credential credentials = getCredentials(HTTP_TRANSPORT);
+    System.out.println("access token: " + credentials.getAccessToken());
+    Gmail service = new Gmail.Builder(HTTP_TRANSPORT, JSON_FACTORY, credentials)
         .setApplicationName(APPLICATION_NAME)
         .build();
 
