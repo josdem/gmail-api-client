@@ -101,6 +101,8 @@ public class GmailQuickstart {
     //Create an email
     var createEmail = CreateEmail.createEmail("vetlog@josdem.io", "contact@josdem.io", "Test email", "This is a test email");
     System.out.println("MimeMessage: " + createEmail);
+    var message = CreateMessage.createMessageWithEmail(createEmail);
+    System.out.println("Message: " + message);
   }
 
 }
