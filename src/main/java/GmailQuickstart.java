@@ -13,6 +13,9 @@ import com.google.api.services.gmail.Gmail;
 import com.google.api.services.gmail.GmailScopes;
 import com.google.api.services.gmail.model.Label;
 import com.google.api.services.gmail.model.ListLabelsResponse;
+
+import javax.mail.MessagingException;
+import javax.mail.internet.MimeMessage;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -72,7 +75,7 @@ public class GmailQuickstart {
     return credential;
   }
 
-  public static void main(String... args) throws IOException, GeneralSecurityException {
+  public static void main(String... args) throws IOException, GeneralSecurityException, MessagingException {
     // Build a new authorized API client service.
     final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
 
@@ -94,5 +97,10 @@ public class GmailQuickstart {
         System.out.printf("- %s\n", label.getName());
       }
     }
+
+    //Create an email
+    var createEmail = CreateEmail.createEmail("vetlog@josdem.io", "contact@josdem.io", "Test email", "This is a test email");
+    System.out.println("MimeMessage: " + createEmail);
   }
+
 }
