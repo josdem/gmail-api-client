@@ -85,29 +85,12 @@ public class GmailQuickstart {
         .setApplicationName(APPLICATION_NAME)
         .build();
 
-    // Print the labels in the user's account.
-    /*
-    String user = "me";
-    ListLabelsResponse listResponse = service.users().labels().list(user).execute();
-    List<Label> labels = listResponse.getLabels();
-    if (labels.isEmpty()) {
-      System.out.println("No labels found.");
-    } else {
-      System.out.println("Labels:");
-      for (Label label : labels) {
-        System.out.printf("- %s\n", label.getName());
-      }
-    }
-     */
-
-    //Create an email
     var createEmail = CreateEmail.createEmail("vetlog@josdem.io", "contact@josdem.io", "Test email", "This is a test email");
     System.out.println("MimeMessage: " + createEmail);
     var message = CreateMessage.createMessageWithEmail(createEmail);
     System.out.println("Message: " + message);
-    // Send the email
     var result = service.users().messages().send("me", message).execute();
-    System.out.println("Message id: " + result);
+    System.out.println("Result: " + result);
   }
 
 }
