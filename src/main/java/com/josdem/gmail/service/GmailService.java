@@ -19,7 +19,6 @@ import java.util.List;
 
 
 public class GmailService {
-  private static final String APPLICATION_NAME = "Gmail API Java Quickstart";
   private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
   private static final String TOKENS_DIRECTORY_PATH = "tokens";
   private static final List<String> SCOPES = Collections.singletonList(GmailScopes.GMAIL_SEND);
@@ -38,7 +37,7 @@ public class GmailService {
         .setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
         .setAccessType("offline")
         .build();
-    VerificationCodeReceiver receiver = new JmailerVerificationCodeReceiverImpl.Builder().setPort(8888).build();
+    VerificationCodeReceiver receiver = new JmailerVerificationCodeReceiverImpl.Builder().setPort(8083).build();
     return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
   }
 
