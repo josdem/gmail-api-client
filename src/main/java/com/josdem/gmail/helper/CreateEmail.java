@@ -1,3 +1,5 @@
+package com.josdem.gmail.helper;
+
 import java.util.Properties;
 import javax.mail.MessagingException;
 import javax.mail.Session;

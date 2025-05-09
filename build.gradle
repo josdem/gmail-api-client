@@ -1,7 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = 'GmailQuickstart'
+mainClassName = 'com.josdem.gmail.GmailQuickstart'
 sourceCompatibility = 11
 targetCompatibility = 11
 version = '1.0'

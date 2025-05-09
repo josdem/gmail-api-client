@@ -1,3 +1,5 @@
+package com.josdem.gmail.helper;
+
 import com.google.api.services.gmail.model.Message;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
