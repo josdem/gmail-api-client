@@ -26,7 +26,7 @@ public class GmailQuickstart {
                 .setApplicationName(APPLICATION_NAME)
                 .build();
 
-        var createEmail = CreateEmail.createEmail("vetlog@josdem.io", "contact@josdem.io", "Test email", "This is a test email");
+        var createEmail = CreateEmail.createEmail("contact@josdem.io", "vetlog@josdem.io", "Test email", "This is a test email");
         System.out.println("MimeMessage: " + createEmail);
         var message = CreateMessage.createMessageWithEmail(createEmail);
         System.out.println("Message: " + message);
