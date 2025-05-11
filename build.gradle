@@ -1,10 +1,23 @@
-apply plugin: 'java'
-apply plugin: 'application'
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.gradleup.shadow' version '8.3.6'
+}
 
 mainClassName = 'com.josdem.gmail.GmailQuickstart'
 sourceCompatibility = 11
 targetCompatibility = 11
-version = '1.0'
+version = '1.0.0'
+
+application {
+    mainClass = 'com.josdem.gmail.GmailQuickstart'
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': application.mainClass
+    }
+}
 
 repositories {
     mavenCentral()
