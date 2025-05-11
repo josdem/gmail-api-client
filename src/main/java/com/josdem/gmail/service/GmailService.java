@@ -11,6 +11,7 @@ import com.google.api.client.json.gson.GsonFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
 import com.google.api.services.gmail.GmailScopes;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -34,8 +35,9 @@ public class GmailService {
 
     GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(
         HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
-        .setDataStoreFactory(new FileDataStoreFactory(new java.io.File(TOKENS_DIRECTORY_PATH)))
+        .setDataStoreFactory(new FileDataStoreFactory(new File(TOKENS_DIRECTORY_PATH)))
         .setAccessType("offline")
+        .setApprovalPrompt("force")
         .build();
     VerificationCodeReceiver receiver = new JmailerVerificationCodeReceiverImpl.Builder().setPort(8083).build();
     return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
