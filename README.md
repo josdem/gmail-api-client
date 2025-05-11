@@ -1,4 +1,4 @@
-gmail-api-client-workshop
+gmail-api-client
 ----------------------------------------------
 Simple Gmail API client
 
