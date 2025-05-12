@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.security.GeneralSecurityException;
 
 public class GmailQuickstart {
-    private static final String APPLICATION_NAME = "Gmail API Java Quickstart";
+    private static final String APPLICATION_NAME = "gmailer-spring-boot";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
 
     public static void main(String... args) throws IOException, GeneralSecurityException, MessagingException {
