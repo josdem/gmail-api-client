@@ -43,7 +43,7 @@ import java.util.concurrent.Semaphore;
  */
 public final class JmailerVerificationCodeReceiverImpl implements VerificationCodeReceiver {
 
-    private static final String LOCALHOST = "localhost";
+    private static final String HOST = "gmailer.josdem.io";
 
     private static final String CALLBACK_PATH = "/Callback";
 
@@ -81,12 +81,12 @@ public final class JmailerVerificationCodeReceiverImpl implements VerificationCo
     private String failureLandingPageUrl;
 
     /**
-     * Constructor that starts the server on {@link #LOCALHOST} and an unused port.
+     * Constructor that starts the server on {@link #HOST} and an unused port.
      *
      * <p>Use {@link Builder} if you need to specify any of the optional parameters.
      */
     public JmailerVerificationCodeReceiverImpl() {
-        this(LOCALHOST, -1, CALLBACK_PATH, null, null);
+        this(HOST, -1, CALLBACK_PATH, null, null);
     }
 
     /**
@@ -133,7 +133,7 @@ public final class JmailerVerificationCodeReceiverImpl implements VerificationCo
             Throwables.propagateIfPossible(e);
             throw new IOException(e);
         }
-        return "http://" + this.getHost() + ":" + port + callbackPath;
+        return "https://" + this.getHost() + callbackPath;
     }
 
     /*
@@ -205,7 +205,7 @@ public final class JmailerVerificationCodeReceiverImpl implements VerificationCo
     public static final class Builder {
 
         /** Host name to use. */
-        private String host = LOCALHOST;
+        private String host = HOST;
 
         /** Port to use or {@code -1} to select an unused port. */
         private int port = -1;
